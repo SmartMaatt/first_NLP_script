@@ -73,31 +73,7 @@ class ArticleData:
                 word = terms[int(df2.iloc[i]['index'])]
                 value = float(df2.iloc[i][0])
                 self.most_common_words.append(tuple([word, value]))
-            self.most_common_words = self.sort_equal_values(self.most_common_words, 5)
+            self.most_common_words.sort(key=lambda words: (words[1], words[0]), reverse=True)
+            self.most_common_words = self.most_common_words[:5]
         else:
             return "Article has not been filtered by vectorizer!"
-
-
-    def sort_equal_values(self, common_word_list, finish_index):
-        hanoi_value = None
-        hanoi_index = None
-        hanoi_list = []
-        for x in range(len(common_word_list)):
-            hanoi_value = common_word_list[x][1]
-            if x != (len(common_word_list)-1) and hanoi_value == common_word_list[x+1][1]:
-                if len(hanoi_list) == 0:
-                    hanoi_index = x
-                    hanoi_list.append(common_word_list[x])
-                hanoi_list.append(common_word_list[x+1])
-                continue
-            elif hanoi_index is not None:
-                hanoi_list.sort(key=lambda tup: tup[0], reverse=True)
-                common_word_list[hanoi_index:hanoi_index+len(hanoi_list)] = hanoi_list
-                hanoi_value = None
-                hanoi_index = None
-                hanoi_list.clear()
-
-            if x >= finish_index-1:
-                break
-
-        return common_word_list[:finish_index]
