@@ -16,7 +16,7 @@
 </p>
 
 ## Overview
-The `First-NLP-Script` repository contains scripts for analyzing and processing text data. It consists of two main Python scripts (`manage_classes.py` and `key_terms.py`), which use Natural Language Processing (NLP) to analyze articles. The project utilizes libraries such as NLTK, pandas, scikit-learn, and lxml for text data processing and analysis.
+The `nlp-script-test` repository contains scripts for analyzing and processing text data. It consists of two main Python scripts (`manage_classes.py` and `key_terms.py`), which use Natural Language Processing (NLP) to analyze articles. The project utilizes libraries such as NLTK, pandas, scikit-learn, and lxml for text data processing and analysis.
 
 ## Project Structure
 - `manage_classes.py`: Contains class definitions and methods for processing text data, including tokenization, lemmatization, filtering stopwords, and calculating most common words.
